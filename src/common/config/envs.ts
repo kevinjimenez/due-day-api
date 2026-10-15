@@ -4,12 +4,14 @@ import * as joi from 'joi';
 interface EnvVars {
   PORT: number;
   NODE_ENV: string;
+  CORS_ORIGIN: string;
 }
 
 const envsSchema = joi
   .object({
     PORT: joi.number().required(),
     NODE_ENV: joi.string().default('local'),
+    CORS_ORIGIN: joi.string(),
   })
   .unknown(true);
 
@@ -29,4 +31,5 @@ const envVars = value;
 export const envs = {
   port: envVars.PORT,
   nodeEnv: envVars.NODE_ENV,
+  corsOrigin: envVars.CORS_ORIGIN,
 };
