@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backend status</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="card" id="card" data-state="cargando">
+      <header class="card__header">
+        <h1 class="title">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 8h4l2-4 4 8 2-4h4" />
+          </svg>
+          Backend status
+        </h1>
+        <span class="badge"><i class="badge__dot"></i><span id="badge">Checking</span></span>
+      </header>
+
+      <section class="main">
+        <div class="halo">
+          <div class="halo__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-up">
+              <path d="M6 19a4 4 0 0 1-.6-7.96A6 6 0 0 1 17 9.5a4.5 4.5 0 0 1 .5 9.5H6Z" />
+              <path class="check" d="m9.5 13.5 2 2 3.5-4" />
+            </svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-down">
+              <path d="M6 19a4 4 0 0 1-.6-7.96A6 6 0 0 1 17 9.5a4.5 4.5 0 0 1 .5 9.5H6Z" />
+              <path class="strike" d="m4 4 16 16" />
+            </svg>
+          </div>
+        </div>
+        <p class="lead">The backend is</p>
+        <p class="status" id="status">…</p>
+      </section>
+
+      <section class="stats">
+        <div class="stat">
+          <span class="stat__icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2" /><rect x="3" y="13" width="18" height="7" rx="2" /></svg>
+          </span>
+          <div><span class="stat__label">Environment</span><strong id="environment">–</strong></div>
+        </div>
+        <div class="stat">
+          <span class="stat__icon">
+            <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="6" rx="1.5" /><rect x="3" y="15" width="6" height="6" rx="1.5" /><rect x="15" y="15" width="6" height="6" rx="1.5" /></svg>
+          </span>
+          <div><span class="stat__label">Port</span><strong id="port">–</strong></div>
+        </div>
+        <div class="stat">
+          <span class="stat__icon">
+            <svg viewBox="0 0 24 24"><path d="M4 18a8 8 0 1 1 16 0Z" /><path d="m12 18 4-5" /></svg>
+          </span>
+          <div><span class="stat__label">Latency</span><strong id="latency">–</strong></div>
+        </div>
+        <div class="stat">
+          <span class="stat__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+          </span>
+          <div><span class="stat__label">Last check</span><strong id="last" class="mono">–</strong></div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span class="url mono" id="url"></span>
+        <button type="button" class="button" id="verify">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.35-5.65M20 4v5h-5" /></svg>
+          Verify
+        </button>
+      </footer>
+    </main>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>
