@@ -12,6 +12,7 @@ async function bootstrap() {
 
   app.use(compression());
 
+  app.setGlobalPrefix(appConfig.prefix, appConfig.prefixOptions);
   app.useGlobalPipes(new ValidationPipe(appConfig.validation));
 
   app.enableCors(appConfig.cors);

@@ -4,6 +4,7 @@ import * as joi from 'joi';
 interface EnvVars {
   PORT: number;
   NODE_ENV: string;
+  API_PREFIX: string;
   CORS_ORIGIN: string;
 
   RATE_LIMIT_TTL: number;
@@ -14,6 +15,7 @@ const envsSchema = joi
   .object({
     PORT: joi.number().required(),
     NODE_ENV: joi.string().default('local'),
+    API_PREFIX: joi.string().default('api'),
     CORS_ORIGIN: joi.string(),
 
     RATE_LIMIT_TTL: joi.number().default(60),
@@ -37,6 +39,7 @@ const envVars = value;
 export const envs = {
   port: envVars.PORT,
   nodeEnv: envVars.NODE_ENV,
+  apiPrefix: envVars.API_PREFIX,
   corsOrigin: envVars.CORS_ORIGIN,
 
   rateLimitTtl: envVars.RATE_LIMIT_TTL,
