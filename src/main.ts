@@ -1,6 +1,7 @@
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import compression from 'compression';
+import helmet from 'helmet';
 import { AppModule } from './app.module';
 import { appConfig } from './common/config/app.config';
 import { envs } from './common/config/envs';
@@ -10,6 +11,7 @@ const logger = new Logger('Bootstrap');
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.use(helmet());
   app.use(compression());
 
   app.setGlobalPrefix(appConfig.prefix, appConfig.prefixOptions);
